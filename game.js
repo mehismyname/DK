@@ -11,7 +11,7 @@ var config = {
         }
     },
     scene: [
-        BootScene
+        BootScene, BarrelScene
     ]
 };
 
