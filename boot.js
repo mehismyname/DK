@@ -14,6 +14,7 @@ var BootScene = new Phaser.Class({
 
         this.input.on('pointerdown', function () {
             alert("By, Kent Smith");
+            this.scene.start('BarrelScene');
         }, this);
     }
 
