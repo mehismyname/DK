@@ -1,4 +1,4 @@
-var BootScene = new Phaser.Class({
+var BarrelScene = new Phaser.Class({
     Extends: Phaser.Scene,
 
 
