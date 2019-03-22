@@ -7,6 +7,7 @@ var BootScene = new Phaser.Class({
 
     preload: function() {
         this.load.image('boot', 'assets/boot.png');
+
     },
 
     create: function () {
