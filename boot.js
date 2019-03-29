@@ -1,8 +1,11 @@
 var BootScene = new Phaser.Class({
     Extends: Phaser.Scene,
 
+
+
     initialize: function BootScene () {
         Phaser.Scene.call(this, {key: 'BootScene'})
+        alert("Click on image to start");
     },
 
     preload: function() {
@@ -16,6 +19,7 @@ var BootScene = new Phaser.Class({
         this.input.on('pointerdown', function () {
             alert("By, Kent Smith");
             this.scene.start('BarrelScene');
+            alert("Sub 2 Pewdiepie");
         }, this);
     }
 
