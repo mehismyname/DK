@@ -30,77 +30,35 @@ var BarrelScene = new Phaser.Class({
             gameOver = true;
         }
 
-        /*function genorateB (scene)
-        {
-
-            barrel = scene.physics.add.sprite(750, 50, 'Barrel').setScale(0.07);
-
-            scene.tweens.add({
-                targets: barrel,
-                x:10,
-                duration:6000,
-                ease:'Expo.easeInOut',
-                repeat:-1,
-                yoyo:true
-
-            });
-
-
-            scene.physics.add.collider(scene.Hero, barrel, scene.hitBomb, null, this);
-            scene.physics.add.collider(scene.platform, barrel);
-
-        }
-
-        genorateB(this);*/
 
         console.log('You found a easter egg!');
         this.cursors = this.input.keyboard.createCursorKeys();
         this.Hero = this.physics.add.sprite(500, 390, 'BigH').setScale(0.1);
-        this.barrel = this.physics.add.sprite(750, 50, 'Barrel').setScale(0.07);
-       //* this.barrel.body.velocity.x=200;
-
-
-        this.barrel1 = this.physics.add.sprite(750, -1000, 'Barrel').setScale(0.07);
-
-        this.tweens.add({
-            targets: barrel1,
-            x:10,
-            duration:6000,
-            ease:'Expo.easeInOut',
-            repeat:-1,
-            yoyo:true
-
-        });
-
-
-        this.barrel2 = this.physics.add.sprite(750, -50000, 'Barrel').setScale(0.07);
-
-        this.tweens.add({
-            targets: barrel2,
-            x:10,
-            duration:6000,
-            ease:'Expo.easeInOut',
-            repeat:-1,
-            yoyo:true
-
-        });
-
-
-
-        this.barrel = this.physics.add.sprite(750, 50, 'Barrel').setScale(0.07);
-
-        this.tweens.add({
-            targets: barrel,
-            x:10,
-            duration:6000,
-            ease:'Expo.easeInOut',
-            repeat:-1,
-            yoyo:true
-
-        });
-
-
         this.player = this.physics.add.sprite(750, -100, 'BigD').setScale(0.25);
+
+
+
+        this.tweens.add({
+            targets: this.player,
+            x:650,
+            duration:1000,
+            ease:'Expo.InOut',
+            repeat:-1,
+            yoyo:true,
+
+        });
+
+        function barrelLife (scene)
+        {
+            scene.barrel = scene.physics.add.sprite(scene.player.body.x, scene.player.body.y, 'Barrel').setScale(0.07);
+            scene.barrel.body.velocity.x=-250;
+            scene.barrel.body.velocity.y=-50;
+            scene.barrel.body.bounce.set(1,0);
+            scene.physics.add.collider(scene.Hero, scene.barrel, hitBomb, null, this);
+            scene.barrel.setCollideWorldBounds(true);
+            scene.physics.add.collider(scene.platforms, scene.barrel);
+        }
+
         this.platforms = this.physics.add.staticGroup();
         this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
         this.platforms.create(510, 400, 'ground').setScale(2, 1).refreshBody();
@@ -109,12 +67,24 @@ var BarrelScene = new Phaser.Class({
         this.physics.add.collider(this.platforms, this.player);
         this.physics.add.collider(this.platforms, this.Hero);
 
-        this.barrel1.setCollideWorldBounds(true);
-        this.barrel2.setCollideWorldBounds(true);
-        this.barrel.setCollideWorldBounds(true);
+        this.time.addEvent({
+
+            delay: 2000,
+
+            callback: barrelLife,
+
+            args: [this],
+
+            loop: true,
+
+        });
+        barrelLife(this);
+
+
+
         this.Hero.setCollideWorldBounds(true);
-        this.physics.add.collider(this.Hero, this.barrel, hitBomb, null, this);
-        this.physics.add.collider(this.platforms, this.barrel);
+
+
     },
 
     update: function () {
@@ -122,11 +92,11 @@ var BarrelScene = new Phaser.Class({
         if (this.cursors.left.isDown)
         {
 
-            this.Hero.setVelocityX(-160);
+            this.Hero.setVelocityX(-290);
 
         } else if (this.cursors.right.isDown)
         {
-            this.Hero.setVelocityX(+160);
+            this.Hero.setVelocityX(+290);
 
         } else {
             this.Hero.setVelocityX(0);
