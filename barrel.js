@@ -22,12 +22,14 @@ var BarrelScene = new Phaser.Class({
 
         function hitBomb (Hero, barrel)
         {
-            this.physics.pause();
+
 
             alert("You died");
             alert("Reload site to play again");
 
             gameOver = true;
+
+            this.physics.pause();
         }
 
 
@@ -36,6 +38,12 @@ var BarrelScene = new Phaser.Class({
         this.Hero = this.physics.add.sprite(500, 390, 'BigH').setScale(0.1);
         this.player = this.physics.add.sprite(750, -100, 'BigD').setScale(0.25);
 
+        function win () {
+
+
+            alert("You Win!!");
+            alert("Restart to try again")
+        }
 
 
         this.tweens.add({
@@ -52,7 +60,6 @@ var BarrelScene = new Phaser.Class({
         {
             scene.barrel = scene.physics.add.sprite(scene.player.body.x, scene.player.body.y, 'Barrel').setScale(0.07);
             scene.barrel.body.velocity.x=-250;
-            scene.barrel.body.velocity.y=-50;
             scene.barrel.body.bounce.set(1,0);
             scene.physics.add.collider(scene.Hero, scene.barrel, hitBomb, null, this);
             scene.barrel.setCollideWorldBounds(true);
@@ -66,6 +73,7 @@ var BarrelScene = new Phaser.Class({
         this.platforms.create(500, 130, 'ground').setScale(1.5).refreshBody();
         this.physics.add.collider(this.platforms, this.player);
         this.physics.add.collider(this.platforms, this.Hero);
+        this.physics.add.collider(this.player, this.Hero, win, null, this);
 
         this.time.addEvent({
 
@@ -86,6 +94,8 @@ var BarrelScene = new Phaser.Class({
 
 
     },
+
+
 
     update: function () {
 
