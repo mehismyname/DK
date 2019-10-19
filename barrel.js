@@ -26,6 +26,13 @@ var BarrelScene = new Phaser.Class({
 
             alert("You died");
             alert("Reloading site so you can play again");
+            alert("You're TRASHH BOI");
+            alert("MWA HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA");
+            alert("BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT");
+            alert("BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT");
+            alert("BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT");
+            alert("BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT");
+            alert("BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT BOT");
 
             gameOver = true;
             
