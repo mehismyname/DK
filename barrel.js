@@ -108,12 +108,12 @@ var BarrelScene = new Phaser.Class({
 
         } else if (this.cursors.right.isDown)
         {
-            this.Hero.setVelocityX(+290);
+            this.Hero.setVelocityX(+292);
 
         } else {
             this.Hero.setVelocityX(0);
         }
-        if (this.cursors.up.isDown && this.player.body.touching.this.platform)
+        if (this.cursors.up.isDown && this.player.body.touching.down)
         {
             this.Hero.setVelocityY(-700);
         }
