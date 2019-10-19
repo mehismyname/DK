@@ -113,9 +113,9 @@ var BarrelScene = new Phaser.Class({
         } else {
             this.Hero.setVelocityX(0);
         }
-        if (this.cursors.up.isDown && this.player.body.touching.down)
+        if (this.cursors.up.isDown && this.player.body.touching.this.platform)
         {
-            this.Hero.setVelocityY(-490);
+            this.Hero.setVelocityY(-700);
         }
     },
 
